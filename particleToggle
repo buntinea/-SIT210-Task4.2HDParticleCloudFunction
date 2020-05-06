@@ -1,0 +1,86 @@
+const int green = D7;
+const int blue = D6;
+const int red = D5;
+bool flag = true;
+
+int TrafficLight(String command);
+//void TrafficLight(string command);
+
+void setup() {
+    
+    pinMode(green,OUTPUT);
+    pinMode(blue,OUTPUT);
+    pinMode(red,OUTPUT);
+    Particle.function("Togglelight",TrafficLight);
+
+}
+
+void loop() {
+    
+
+}
+
+int TrafficLight(String command)
+{
+    if(command == "green")
+    {
+        greenLight();
+        return 1;
+        
+    }
+    else if(command == "blue")
+    {
+        
+        blueLight();
+        return 1;
+        
+    }
+    else
+    {
+        
+        redLight();
+        return 1;
+    }
+}
+
+void greenLight()
+{
+    if(digitalRead(green)==HIGH)
+    {
+        digitalWrite(green,LOW);
+        
+    }
+    else if(digitalRead(green)==LOW)
+    {
+        digitalWrite(green,HIGH);
+    }
+    
+}
+
+void blueLight()
+{
+    if(digitalRead(blue)==HIGH)
+    {
+        digitalWrite(blue,LOW);
+        
+    }
+    else if(digitalRead(blue)==LOW)
+    {
+        digitalWrite(blue,HIGH);
+    }
+}
+
+void redLight()
+{
+     if(digitalRead(red)==HIGH)
+    {
+        digitalWrite(red,LOW);
+        
+    }
+    else if(digitalRead(red)==LOW)
+    {
+        digitalWrite(red,HIGH);
+    }
+}
+    
+
